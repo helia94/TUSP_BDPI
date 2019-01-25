@@ -43,7 +43,7 @@ class TUSP(gym.Env):
     def __init__(self, rnd):
         #read data
         self.dataset_dic={}
-        for i in [3]:   #where i is class of problmes by number of trains: 0 for [1,2,3], 1 for [4,5,6,7], 2 for [8,9,10,11,12], 3 for [13,14,15], 4 for [16,17,18]]
+        for i in [2]:   #where i is class of problmes by number of trains: 0 for [1,2,3], 1 for [4,5,6,7], 2 for [8,9,10,11,12], 3 for [13,14,15], 4 for [16,17,18]]
             with open("gym_envs/data_object/states_"+str(i)+".pickle",'rb') as file:
                 dataset=pickle.load(file)
             self.dataset_dic[i]=dataset
@@ -460,6 +460,10 @@ class TUSP(gym.Env):
                 not_empty_tracks_and_wait_possible+=[100]
         if (isinstance(self.triggers[0], Departure)==1 and self.triggers[0].time==0):
                 not_empty_tracks_and_wait_possible+=['d']
+        if (isinstance(self.triggers[0], Departure)==1 and self.triggers[0].time<3 and self.triggers[0].time>0):
+                not_empty_tracks_and_wait_possible+=['w']
+        if (isinstance(self.triggers[0], Arrival)==1 and self.triggers[0].time<3 and self.triggers[0].time>0):
+                not_empty_tracks_and_wait_possible+=['w']
         right=0
 
 
@@ -526,11 +530,11 @@ class TUSP(gym.Env):
     def reset(self):
         """ Reset the environment and return the initial state number"""
         #class_num_train=random.randrange(2)
-        class_num_train=3
+        class_num_train=2
         data=self.dataset_dic[class_num_train]
         length_data=len(data)
         # pick a randome episode from the class of problem you want
-        length_data=1000 #!!!to over fit to a small set
+        length_data=10 #!!!to over fit to a small set
         idx=random.randrange(length_data)
         yrd=pickle.loads(pickle.dumps(data[idx], -1))
         self.state_order = yrd.state_order

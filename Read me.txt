@@ -16,5 +16,6 @@ gym_envs: Gym environments.
 main.py: A simple RL agent that performs actions in a Gym environment, and learns using BDPI. training hyperparameters can be changed here.
 bdpi.py: The BDPI learning algorithm (actor, critics, and glue between them)
 
+monitor_training.ipynb: Look at rewards, length, probabilities, and average q_values evolve in training
 
 

@@ -26,6 +26,8 @@ def label_decoder_reverse(not_empty_tracks_and_wait_possible):
     #if time for departure then only allow departure movements
     if 'd' in not_empty_tracks_and_wait_possible:
         actions=list(set(actions).intersection(list(range(9,17))))
+    if 'w' in not_empty_tracks_and_wait_possible:
+        actions=[53]
     #if not time for departure then remove departure movements
     else:
         actions=list(set(actions).intersection(list(range(1,9))+list(range(17,54))))

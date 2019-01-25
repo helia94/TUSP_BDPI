@@ -26,11 +26,9 @@ import lzo
 import pickle
 import random
 import argparse
-
 import gym
 import numpy as np
 import datetime
-
 import gym_envs
 from bdpi import BDPI
 from  gym_envs.action_decoder_reverse import *
@@ -330,6 +328,9 @@ def main():
             learner.reset(reward)
 
             s = learner._env.reset()
+            print('eps#',i, file=f_actions)
+            print('eps#',i, file=f_probs_n)
+            print('eps#',i, file=f_probs)
             _, reward, seen_reward, done, length = learner.execute(s,f_probs,f_probs_n,f_actions,f_Q_values)
 
             # Ignore perturbed episodes
@@ -393,10 +394,10 @@ if __name__ == '__main__':
     ENVN='TUSP-v0'
     LEN='100000'
     HIDDEN='256'
-    LR='0.0000001'
+    LR='0.1'#'0.0000001'
     ER= '256'
     LOOPS='4'
-    EPOCHES='10'
+    EPOCHES='8'
     Q_LOOPS='2'
     ACTOR_COUNT='8'
     NAME='LEN'+LEN+'LR'+LR+'ER'+ER+'LOOPS'+LOOPS+'EPOCHES'+EPOCHES+'Q_LOOPS'+Q_LOOPS
@@ -413,7 +414,7 @@ if __name__ == '__main__':
         "--epochs",EPOCHES,
         "--q-loops",Q_LOOPS,
         "--actor-count",ACTOR_COUNT,
-        "--save",NAME,
+        "--save",'',
 	"--name",NAME
         
 ##        --er', {er} \

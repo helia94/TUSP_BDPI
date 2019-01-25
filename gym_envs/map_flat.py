@@ -179,6 +179,6 @@ class Map(object):
                 aggregated_map=np.append(aggregated_map,map_dic[name], axis=0)
             else:
                 aggregated_map=map_dic[name]
-        aggregated_map=np.concatenate([aggregated_map.flatten(), status_maps.flatten()])
+        aggregated_map=np.concatenate([aggregated_map.flatten(), status_maps.flatten('F')])
         return aggregated_map
 
