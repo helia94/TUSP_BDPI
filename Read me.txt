@@ -1,0 +1,20 @@
+# Sample-Efficient Reinforcement Learning with Bootstrapped Dual Policy Iteration
+
+This repository contains the complete implementation of the Bootstrapped Dual Policy Iteration algorithm we developed over the past year and a half. The repository also contains scripts to re-run and re-plot our experiments.
+
+## Organization
+
+The following components are available in this repository
+
+* The complete Python 3 source code of our algorithm;
+* TSUP OpenAI Gym environments;
+
+The files are organized as follows:
+
+gym_envs: Gym environments.
+	type of TUSP problem can be changed in: gym_envs/TUSP.py in function reset. which data to load for the game in: gym_envs/TUSP.py under __init__
+main.py: A simple RL agent that performs actions in a Gym environment, and learns using BDPI. training hyperparameters can be changed here.
+bdpi.py: The BDPI learning algorithm (actor, critics, and glue between them)
+
+
+
