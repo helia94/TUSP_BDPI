@@ -400,7 +400,7 @@ if __name__ == '__main__':
     EPOCHES='8'
     Q_LOOPS='2'
     ACTOR_COUNT='8'
-    NAME='LEN'+LEN+'LR'+LR+'ER'+ER+'LOOPS'+LOOPS+'EPOCHES'+EPOCHES+'Q_LOOPS'+Q_LOOPS
+    NAME="class0_"+'LEN'+LEN+'LR'+LR+'ER'+ER+'LOOPS'+LOOPS+'EPOCHES'+EPOCHES+'Q_LOOPS'+Q_LOOPS
     
 
     sys.argv.extend([

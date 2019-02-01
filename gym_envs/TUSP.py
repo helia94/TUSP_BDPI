@@ -43,7 +43,7 @@ class TUSP(gym.Env):
     def __init__(self, rnd):
         #read data
         self.dataset_dic={}
-        for i in [2]:   #where i is class of problmes by number of trains: 0 for [1,2,3], 1 for [4,5,6,7], 2 for [8,9,10,11,12], 3 for [13,14,15], 4 for [16,17,18]]
+        for i in [0]:   #where i is class of problmes by number of trains: 0 for [1,2,3], 1 for [4,5,6,7], 2 for [8,9,10,11,12], 3 for [13,14,15], 4 for [16,17,18]]
             with open("gym_envs/data_object/states_"+str(i)+".pickle",'rb') as file:
                 dataset=pickle.load(file)
             self.dataset_dic[i]=dataset
@@ -530,7 +530,7 @@ class TUSP(gym.Env):
     def reset(self):
         """ Reset the environment and return the initial state number"""
         #class_num_train=random.randrange(2)
-        class_num_train=2
+        class_num_train=0
         data=self.dataset_dic[class_num_train]
         length_data=len(data)
         # pick a randome episode from the class of problem you want
