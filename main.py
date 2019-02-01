@@ -394,7 +394,7 @@ if __name__ == '__main__':
     ENVN='TUSP-v0'
     LEN='100000'
     HIDDEN='256'
-    LR='0.1'#'0.0000001'
+    LR='0.0000001'
     ER= '256'
     LOOPS='4'
     EPOCHES='8'
